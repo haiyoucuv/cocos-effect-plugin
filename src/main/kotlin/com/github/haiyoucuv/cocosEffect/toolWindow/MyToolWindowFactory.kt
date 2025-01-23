@@ -1,4 +1,4 @@
-package com.github.haiyoucuv.cocoseffectplugin.toolWindow
+package com.github.haiyoucuv.cocosEffect.toolWindow
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -8,8 +8,8 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
-import com.github.haiyoucuv.cocoseffectplugin.MyBundle
-import com.github.haiyoucuv.cocoseffectplugin.services.MyProjectService
+import com.github.haiyoucuv.cocosEffect.MyBundle
+import com.github.haiyoucuv.cocosEffect.services.MyProjectService
 import javax.swing.JButton
 
 

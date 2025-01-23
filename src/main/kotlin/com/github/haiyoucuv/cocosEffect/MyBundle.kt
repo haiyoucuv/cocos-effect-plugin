@@ -1,4 +1,4 @@
-package com.github.haiyoucuv.cocoseffectplugin
+package com.github.haiyoucuv.cocosEffect
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

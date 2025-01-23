@@ -1,4 +1,4 @@
-package com.github.haiyoucuv.cocoseffectplugin.listeners
+package com.github.haiyoucuv.cocosEffect.listeners
 
 import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.diagnostic.thisLogger

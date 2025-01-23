@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.haiyoucuv.cocoseffectplugin</id>
-    <name>cocos-effect-plugin</name>
+    <id>com.github.haiyoucuv.cocosEffect</id>
+    <name>CocosEffectPlugin</name>
     <vendor>haiyoucuv</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,10 +9,17 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.haiyoucuv.cocoseffectplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.haiyoucuv.cocosEffect.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <multiHostInjector implementation="com.github.haiyoucuv.cocosEffect.inject.YAMLInjector"/>
+        <fileType
+            name="Cocos Effect"
+            implementationClass="com.github.haiyoucuv.cocosEffect.CocosEffectFileType"
+            fieldName="INSTANCE"
+            language="CocosEffect"
+            extensions="effect"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.haiyoucuv.cocoseffectplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.haiyoucuv.cocosEffect.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>

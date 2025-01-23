@@ -1,9 +1,9 @@
-package com.github.haiyoucuv.cocoseffectplugin.services
+package com.github.haiyoucuv.cocosEffect.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.haiyoucuv.cocoseffectplugin.MyBundle
+import com.github.haiyoucuv.cocosEffect.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {
