@@ -1,0 +1,49 @@
+// 第七步:定义bnf语法
+// 第八步:右键生成parse code
+// 第九步:右键生成flex文件
+{
+  // 语言解析器,由Grammar-Kit插件根据bnf语法文件自动生成
+//  parserClass="com.github.haiyoucuv.parser.CocosEffectParser"
+  // 定义辅助类,供 CocosEffectParser 类使用
+//  parserUtilClass="com.github.haiyoucuv.parser.CocosEffectParserUtil"
+
+  // 指定生成的PsiElement子类需要继承的父类
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  // 指定所有生成的PsiElement类的类名前缀
+  psiClassPrefix="CocosEffect"
+  // 指定所有生成的PsiElement实现类的类名后缀
+  psiImplClassSuffix="Impl"
+  // 指定所有生成的PsiElement类的包位置
+  psiPackage="com.github.haiyoucuv.psi"
+  // 指定所有生成的PsiElement实现类的包位置
+  psiImplPackage="com.github.haiyoucuv.cocosEffect.psi.impl"
+
+  // 指定ElementType所在的类,由Grammar-Kit自动生成
+  elementTypeHolderClass="com.github.haiyoucuv.cocosEffect.psi.CocosEffectTypes"
+  // 定义elementType类型,供 CocosEffectTypes 类使用
+  elementTypeClass="com.github.haiyoucuv.cocosEffect.psi.CocosEffectElementType"
+  // 定义tokenType类型,供 CocosEffectTypes 类使用
+  tokenTypeClass="com.github.haiyoucuv.cocosEffect.psi.CocosEffectTokenType"
+  // 定义工具类,供所有PsiElement实现类使用
+//  psiImplUtilClass="com.github.haiyoucuv.cocosEffect.psi.impl.CocosEffectPsiImplUtil"
+
+  tokens=[
+    CC_EFFECT="CCEffect"
+    CC_PROGRAM="CCProgram"
+    BLOCK_START="%{"
+    BLOCK_END="}%"
+//    YAML_TEXT="regexp:CCEffect\s*%\{[\w\s\W\S]*?(}%){1}"
+//    GLSL_TEXT="regexp:CCProgram.*%\{[\w\s\W\S]*?(}%){1}"
+//    YAML_TEXT="regexp:CCEffect\s*%\{[\s\S]*?}%+"
+//    GLSL_TEXT="regexp:(CCProgram.*%\{[\s\S]*?}%)"
+//    YAML_TEXT="regexp:(CCEffect\s*%\{[\s\S]*?(}%){1})"
+    line_comment="regexp://.*"
+    block_comment="regexp:/\*(.|\n)*\*/"
+  ]
+}
+
+ccEffectLanguage ::= ccEffectBlock*
+
+ccEffectBlock ::= CC_EFFECT
+                | CC_PROGRAM

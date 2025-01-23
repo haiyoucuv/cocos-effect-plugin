@@ -17,6 +17,12 @@
             fieldName="INSTANCE"
             language="CocosEffect"
             extensions="effect"/>
+        <lang.parserDefinition
+            language="CocosEffect"
+            implementationClass="com.github.haiyoucuv.cocosEffect.parser.CocosEffectParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+            language="CocosEffect"
+            implementationClass="com.github.haiyoucuv.cocosEffect.highlight.CocosEffectSyntaxHighlighterFactory"/>
     </extensions>
 
     <applicationListeners>

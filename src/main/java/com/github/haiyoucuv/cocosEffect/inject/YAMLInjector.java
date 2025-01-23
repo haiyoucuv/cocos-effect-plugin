@@ -21,9 +21,9 @@ public class YAMLInjector implements MultiHostInjector {
             int endIndex = text.lastIndexOf("}%");
             if (startIndex < endIndex) {
                 TextRange range = TextRange.create(startIndex, endIndex);
-                registrar.startInjecting(YAMLLanguage.INSTANCE)
-                        .addPlace(null, null, host, range)
-                        .doneInjecting();
+//                registrar.startInjecting(YAMLLanguage.INSTANCE)
+//                        .addPlace(null, null, host, range)
+//                        .doneInjecting();
             }
         }
     }

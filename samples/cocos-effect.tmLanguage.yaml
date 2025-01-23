@@ -1,0 +1,31 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+$schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+
+name: Cocos Effect
+scopeName: source.cocos.effect
+
+patterns:
+- include: '#cc-effect'
+
+repository:
+  cc-effect:
+    patterns:
+    - contentName: meta.embedded.yaml
+      begin: (CCEffect)\s*%{
+      end: '}%|%}'
+      beginCaptures:
+        '1': { name: entity.name.type.class.cocos.effect }
+      patterns:
+      - include: source.yaml
+    - contentName: meta.embedded.program
+      begin: (CCProgram)\s*([\w-]+)\s*%{
+      end: '}%|%}'
+      beginCaptures:
+        '1': { name: entity.name.type.class.cocos.effect }
+        '2': { name: meta.class.cocos.effect }
+      patterns:
+      - include: source.cocos.program
+      - begin: CCEffect|CCProgram
+        end: $
+        name: invalid.illegal.cocos.effect

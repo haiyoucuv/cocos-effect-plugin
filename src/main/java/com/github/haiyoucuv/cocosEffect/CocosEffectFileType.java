@@ -32,6 +32,6 @@ public class CocosEffectFileType extends LanguageFileType {
 
     @Override
     public Icon getIcon() {
-        return null; // You can set an icon here
+        return CocosEffectIcons.FILE; // You can set an icon here
     }
 }

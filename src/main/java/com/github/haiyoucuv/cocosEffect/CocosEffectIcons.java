@@ -9,6 +9,6 @@ import javax.swing.*;
  */
 public class CocosEffectIcons {
 
-    public static final Icon FILE = IconLoader.getIcon("src/main/resources/icons/cocos.ico", CocosEffectIcons.class);
+    public static final Icon FILE = IconLoader.getIcon("/icons/cocos.ico", CocosEffectIcons.class);
 
 }
