@@ -7,6 +7,14 @@ import com.intellij.psi.PsiElement;
 
 public class CocosEffectVisitor extends PsiElementVisitor {
 
+  public void visitGlslText(@NotNull CocosEffectGlslText o) {
+    visitPsiElement(o);
+  }
+
+  public void visitYamlText(@NotNull CocosEffectYamlText o) {
+    visitPsiElement(o);
+  }
+
   public void visitCcEffectBlock(@NotNull CocosEffectCcEffectBlock o) {
     visitPsiElement(o);
   }

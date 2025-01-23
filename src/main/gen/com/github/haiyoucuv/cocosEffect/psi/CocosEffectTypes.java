@@ -9,6 +9,8 @@ import com.github.haiyoucuv.cocosEffect.psi.impl.*;
 public interface CocosEffectTypes {
 
   IElementType CC_EFFECT_BLOCK = new CocosEffectElementType("CC_EFFECT_BLOCK");
+  IElementType GLSL_TEXT = new CocosEffectElementType("GLSL_TEXT");
+  IElementType YAML_TEXT = new CocosEffectElementType("YAML_TEXT");
 
   IElementType BLOCK_COMMENT = new CocosEffectTokenType("block_comment");
   IElementType BLOCK_END = new CocosEffectTokenType("}%");
@@ -22,6 +24,12 @@ public interface CocosEffectTypes {
       IElementType type = node.getElementType();
       if (type == CC_EFFECT_BLOCK) {
         return new CocosEffectCcEffectBlockImpl(node);
+      }
+      else if (type == GLSL_TEXT) {
+        return new CocosEffectGlslTextImpl(node);
+      }
+      else if (type == YAML_TEXT) {
+        return new CocosEffectYamlTextImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

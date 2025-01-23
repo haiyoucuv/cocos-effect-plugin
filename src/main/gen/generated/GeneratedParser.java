@@ -36,16 +36,54 @@ public class GeneratedParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CC_EFFECT
-  //                 | CC_PROGRAM
+  public static boolean GLSL_TEXT(PsiBuilder b, int l) {
+    Marker m = enter_section_(b);
+    exit_section_(b, m, GLSL_TEXT, true);
+    return true;
+  }
+
+  /* ********************************************************** */
+  public static boolean YAML_TEXT(PsiBuilder b, int l) {
+    Marker m = enter_section_(b);
+    exit_section_(b, m, YAML_TEXT, true);
+    return true;
+  }
+
+  /* ********************************************************** */
+  // CC_EFFECT BLOCK_START YAML_TEXT BLOCK_END
+  //                 | CC_PROGRAM BLOCK_START GLSL_TEXT BLOCK_END
   public static boolean ccEffectBlock(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ccEffectBlock")) return false;
     if (!nextTokenIs(b, "<cc effect block>", CC_EFFECT, CC_PROGRAM)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, CC_EFFECT_BLOCK, "<cc effect block>");
-    r = consumeToken(b, CC_EFFECT);
-    if (!r) r = consumeToken(b, CC_PROGRAM);
+    r = ccEffectBlock_0(b, l + 1);
+    if (!r) r = ccEffectBlock_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // CC_EFFECT BLOCK_START YAML_TEXT BLOCK_END
+  private static boolean ccEffectBlock_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ccEffectBlock_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, CC_EFFECT, BLOCK_START);
+    r = r && YAML_TEXT(b, l + 1);
+    r = r && consumeToken(b, BLOCK_END);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // CC_PROGRAM BLOCK_START GLSL_TEXT BLOCK_END
+  private static boolean ccEffectBlock_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ccEffectBlock_1")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, CC_PROGRAM, BLOCK_START);
+    r = r && GLSL_TEXT(b, l + 1);
+    r = r && consumeToken(b, BLOCK_END);
+    exit_section_(b, m, null, r);
     return r;
   }
 

@@ -18,6 +18,11 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
  */
 public class CocosEffectSyntaxHighlighter extends SyntaxHighlighterBase {
 
+    public static final TextAttributesKey LINE_COMMENT =
+            createTextAttributesKey("LINE_COMMIT", DefaultLanguageHighlighterColors.LINE_COMMENT);
+    public static final TextAttributesKey BLOCK_COMMENT =
+            createTextAttributesKey("BLOCK_COMMENT", DefaultLanguageHighlighterColors.BLOCK_COMMENT);
+
     public static final TextAttributesKey COCOS_KEYWORD =
             createTextAttributesKey("COCOS_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey YAML_CODE =
@@ -27,6 +32,9 @@ public class CocosEffectSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey BAD_CHARACTER =
             createTextAttributesKey("SIMPLE_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
 
+
+    private static final TextAttributesKey[] LINE_COMMENT_KEYS = new TextAttributesKey[]{LINE_COMMENT};
+    private static final TextAttributesKey[] BLOCK_COMMENT_KEYS = new TextAttributesKey[]{BLOCK_COMMENT};
 
     private static final TextAttributesKey[] COCOS_KEYWORD_KEYS = new TextAttributesKey[]{COCOS_KEYWORD};
     private static final TextAttributesKey[] YAML_CODE_KEYS = new TextAttributesKey[]{YAML_CODE};
@@ -42,13 +50,20 @@ public class CocosEffectSyntaxHighlighter extends SyntaxHighlighterBase {
 
     @Override
     public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType) {
-//        if (tokenType.equals(CocosEffectTypes.GLSL_TEXT)) {
-//            return YAML_CODE_KEYS;
-//        }
+        if (tokenType.equals(CocosEffectTypes.LINE_COMMENT)) {
+            return LINE_COMMENT_KEYS;
+        }
+        if (tokenType.equals(CocosEffectTypes.BLOCK_COMMENT)) {
+            return BLOCK_COMMENT_KEYS;
+        }
 
-//        if (tokenType.equals(CocosEffectTypes.YAML_TEXT)) {
-//            return GLSL_CODE_KEYS;
-//        }
+        if (tokenType.equals(CocosEffectTypes.GLSL_TEXT)) {
+            return YAML_CODE_KEYS;
+        }
+
+        if (tokenType.equals(CocosEffectTypes.YAML_TEXT)) {
+            return GLSL_CODE_KEYS;
+        }
 
         if (tokenType.equals(CocosEffectTypes.CC_EFFECT)
                 || tokenType.equals(CocosEffectTypes.CC_PROGRAM)

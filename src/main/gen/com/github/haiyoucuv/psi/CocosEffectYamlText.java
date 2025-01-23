@@ -5,12 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface CocosEffectCcEffectBlock extends PsiElement {
-
-  @Nullable
-  CocosEffectGlslText getGlslText();
-
-  @Nullable
-  CocosEffectYamlText getYamlText();
+public interface CocosEffectYamlText extends PsiElement {
 
 }

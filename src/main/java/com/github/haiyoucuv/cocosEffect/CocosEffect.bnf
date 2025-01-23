@@ -45,5 +45,8 @@
 
 ccEffectLanguage ::= ccEffectBlock*
 
-ccEffectBlock ::= CC_EFFECT
-                | CC_PROGRAM
+YAML_TEXT ::=
+GLSL_TEXT ::=
+
+ccEffectBlock ::= CC_EFFECT BLOCK_START YAML_TEXT BLOCK_END
+                | CC_PROGRAM BLOCK_START GLSL_TEXT BLOCK_END
