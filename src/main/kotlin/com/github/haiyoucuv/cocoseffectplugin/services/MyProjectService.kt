@@ -1,9 +1,9 @@
-package org.jetbrains.plugins.template.services
+package com.github.haiyoucuv.cocoseffectplugin.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.template.MyBundle
+import com.github.haiyoucuv.cocoseffectplugin.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {
