@@ -50,20 +50,20 @@ public class CocosEffectSyntaxHighlighter extends SyntaxHighlighterBase {
 
     @Override
     public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType) {
-        if (tokenType.equals(CocosEffectTypes.LINE_COMMENT)) {
-            return LINE_COMMENT_KEYS;
-        }
-        if (tokenType.equals(CocosEffectTypes.BLOCK_COMMENT)) {
-            return BLOCK_COMMENT_KEYS;
-        }
+//        if (tokenType.equals(CocosEffectTypes.LINE_COMMENT)) {
+//            return LINE_COMMENT_KEYS;
+//        }
+//        if (tokenType.equals(CocosEffectTypes.BLOCK_COMMENT)) {
+//            return BLOCK_COMMENT_KEYS;
+//        }
 
-        if (tokenType.equals(CocosEffectTypes.GLSL_TEXT)) {
-            return YAML_CODE_KEYS;
-        }
-
-        if (tokenType.equals(CocosEffectTypes.YAML_TEXT)) {
-            return GLSL_CODE_KEYS;
-        }
+//        if (tokenType.equals(CocosEffectTypes.GLSL_TEXT)) {
+//            return YAML_CODE_KEYS;
+//        }
+//
+//        if (tokenType.equals(CocosEffectTypes.YAML_TEXT)) {
+//            return GLSL_CODE_KEYS;
+//        }
 
         if (tokenType.equals(CocosEffectTypes.CC_EFFECT)
                 || tokenType.equals(CocosEffectTypes.CC_PROGRAM)

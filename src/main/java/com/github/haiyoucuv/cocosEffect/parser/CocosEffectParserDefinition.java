@@ -16,7 +16,7 @@ import generated.GeneratedParser;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * 第十二步:定义解析器,并在plugin.xml里注册
+ * 定义解析器,并在plugin.xml里注册
  */
 public class CocosEffectParserDefinition implements ParserDefinition {
     public static final IFileElementType FILE = new IFileElementType(CocosEffectLanguage.INSTANCE);

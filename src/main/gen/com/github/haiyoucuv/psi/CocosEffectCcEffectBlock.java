@@ -8,9 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface CocosEffectCcEffectBlock extends PsiElement {
 
   @Nullable
-  CocosEffectGlslText getGlslText();
+  PsiElement getGlslBegin();
 
   @Nullable
-  CocosEffectYamlText getYamlText();
+  PsiElement getYamlBegin();
 
 }

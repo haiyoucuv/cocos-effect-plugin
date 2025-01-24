@@ -25,6 +25,8 @@ import static com.github.haiyoucuv.cocosEffect.psi.CocosEffectTypes.*;
 EOL=\R
 WHITE_SPACE=\s+
 
+YAML_BEGIN=(CCEffect)[ \t\n\x0B\f\r]*%\{
+GLSL_BEGIN=(CCProgram)[ \t\n\x0B\f\r]*([\w-]+)[ \t\n\x0B\f\r]*%\{
 LINE_COMMENT="//".*
 BLOCK_COMMENT="/"\*(.|\n)*\*"/"
 
@@ -34,9 +36,10 @@ BLOCK_COMMENT="/"\*(.|\n)*\*"/"
 
   "CCEffect"            { return CC_EFFECT; }
   "CCProgram"           { return CC_PROGRAM; }
-  "%{"                  { return BLOCK_START; }
   "}%"                  { return BLOCK_END; }
 
+  {YAML_BEGIN}          { return YAML_BEGIN; }
+  {GLSL_BEGIN}          { return GLSL_BEGIN; }
   {LINE_COMMENT}        { return LINE_COMMENT; }
   {BLOCK_COMMENT}       { return BLOCK_COMMENT; }
 

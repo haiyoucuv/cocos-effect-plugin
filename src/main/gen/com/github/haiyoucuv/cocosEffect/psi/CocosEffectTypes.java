@@ -9,27 +9,20 @@ import com.github.haiyoucuv.cocosEffect.psi.impl.*;
 public interface CocosEffectTypes {
 
   IElementType CC_EFFECT_BLOCK = new CocosEffectElementType("CC_EFFECT_BLOCK");
-  IElementType GLSL_TEXT = new CocosEffectElementType("GLSL_TEXT");
-  IElementType YAML_TEXT = new CocosEffectElementType("YAML_TEXT");
 
-  IElementType BLOCK_COMMENT = new CocosEffectTokenType("block_comment");
+  IElementType BLOCK_COMMENT = new CocosEffectTokenType("BLOCK_COMMENT");
   IElementType BLOCK_END = new CocosEffectTokenType("}%");
-  IElementType BLOCK_START = new CocosEffectTokenType("%{");
   IElementType CC_EFFECT = new CocosEffectTokenType("CCEffect");
   IElementType CC_PROGRAM = new CocosEffectTokenType("CCProgram");
-  IElementType LINE_COMMENT = new CocosEffectTokenType("line_comment");
+  IElementType GLSL_BEGIN = new CocosEffectTokenType("GLSL_BEGIN");
+  IElementType LINE_COMMENT = new CocosEffectTokenType("LINE_COMMENT");
+  IElementType YAML_BEGIN = new CocosEffectTokenType("YAML_BEGIN");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
       if (type == CC_EFFECT_BLOCK) {
         return new CocosEffectCcEffectBlockImpl(node);
-      }
-      else if (type == GLSL_TEXT) {
-        return new CocosEffectGlslTextImpl(node);
-      }
-      else if (type == YAML_TEXT) {
-        return new CocosEffectYamlTextImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

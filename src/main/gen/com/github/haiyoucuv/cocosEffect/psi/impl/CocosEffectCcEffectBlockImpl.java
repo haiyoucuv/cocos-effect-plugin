@@ -27,4 +27,16 @@ public class CocosEffectCcEffectBlockImpl extends ASTWrapperPsiElement implement
     else super.accept(visitor);
   }
 
+  @Override
+  @Nullable
+  public PsiElement getGlslBegin() {
+    return findChildByType(GLSL_BEGIN);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getYamlBegin() {
+    return findChildByType(YAML_BEGIN);
+  }
+
 }

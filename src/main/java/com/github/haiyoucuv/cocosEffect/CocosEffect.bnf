@@ -26,27 +26,25 @@
   // 定义tokenType类型,供 CocosEffectTypes 类使用
   tokenTypeClass="com.github.haiyoucuv.cocosEffect.psi.CocosEffectTokenType"
   // 定义工具类,供所有PsiElement实现类使用
-//  psiImplUtilClass="com.github.haiyoucuv.cocosEffect.psi.impl.CocosEffectPsiImplUtil"
+  psiImplUtilClass="com.github.haiyoucuv.cocosEffect.psi.impl.CocosEffectPsiImplUtil"
 
   tokens=[
     CC_EFFECT="CCEffect"
     CC_PROGRAM="CCProgram"
-    BLOCK_START="%{"
+//    CODE="regexp:%\{[\w\s\W\S]*?\}%"
     BLOCK_END="}%"
-//    YAML_TEXT="regexp:CCEffect\s*%\{[\w\s\W\S]*?(}%){1}"
-//    GLSL_TEXT="regexp:CCProgram.*%\{[\w\s\W\S]*?(}%){1}"
-//    YAML_TEXT="regexp:CCEffect\s*%\{[\s\S]*?}%+"
-//    GLSL_TEXT="regexp:(CCProgram.*%\{[\s\S]*?}%)"
-//    YAML_TEXT="regexp:(CCEffect\s*%\{[\s\S]*?(}%){1})"
-    line_comment="regexp://.*"
-    block_comment="regexp:/\*(.|\n)*\*/"
+
+    YAML_BEGIN="regexp:(CCEffect)\s*%\{"
+    GLSL_BEGIN="regexp:(CCProgram)\s*([\w-]+)\s*%\{"
+    BLOCK_END="}%"
+
+//    YAML_TEXT="regexp:CCEffect\s*%\{[\s\S]*?\}%"
+//    GLSL_TEXT="regexp:CCProgram.*%\{[\w*!+.\s\S]*?\}%"
+    LINE_COMMENT="regexp://.*"
+    BLOCK_COMMENT="regexp:/\*(.|\n)*\*/"
   ]
 }
 
-ccEffectLanguage ::= ccEffectBlock*
+ccEffectLanguage ::= LINE_COMMENT | BLOCK_COMMENT | ccEffectBlock*
 
-YAML_TEXT ::=
-GLSL_TEXT ::=
-
-ccEffectBlock ::= CC_EFFECT BLOCK_START YAML_TEXT BLOCK_END
-                | CC_PROGRAM BLOCK_START GLSL_TEXT BLOCK_END
+ccEffectBlock ::= (YAML_BEGIN | GLSL_BEGIN) BLOCK_END

@@ -9,8 +9,7 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.haiyoucuv.cocosEffect.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <multiHostInjector implementation="com.github.haiyoucuv.cocosEffect.inject.YAMLInjector"/>
+<!--        <multiHostInjector implementation="com.github.haiyoucuv.cocosEffect.inject.YAMLInjector"/>-->
         <fileType
             name="Cocos Effect"
             implementationClass="com.github.haiyoucuv.cocosEffect.CocosEffectFileType"

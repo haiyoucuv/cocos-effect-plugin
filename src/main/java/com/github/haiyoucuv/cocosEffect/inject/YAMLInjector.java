@@ -18,7 +18,7 @@ public class YAMLInjector implements MultiHostInjector {
             PsiLanguageInjectionHost host = (PsiLanguageInjectionHost) context;
             String text = host.getText();
             int startIndex = text.indexOf("CCEffect %{") + "CCEffect %{".length();
-            int endIndex = text.lastIndexOf("}%");
+            int endIndex = text.indexOf("}%");
             if (startIndex < endIndex) {
                 TextRange range = TextRange.create(startIndex, endIndex);
 //                registrar.startInjecting(YAMLLanguage.INSTANCE)
